@@ -14,6 +14,10 @@
       <p>Age: Spore</p>
     {% endif %}
   </div>
+  <div class="card-action">
+    <a href="{% url 'slimes_update' slime.id %}">Edit</a>
+    <a href="{% url 'slimes_delete' slime.id %}">Delete</a>
+  </div>
 </div>
 
 {% endblock %}

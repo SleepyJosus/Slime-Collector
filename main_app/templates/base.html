@@ -18,8 +18,9 @@
           <li><a href="/" class="left brand-logo">&nbsp;&nbsp;SlimeCollector</a></li>
         </ul>
         <ul class="right">
-          <li><a href="/about">About</a></li>
-          <li><a href="/slimes">View All My Slimes</a></li>
+          <li><a href="{% url 'about' %}">About</a></li>
+          <li><a href="{% url 'slimes_create' %}">Add a Slime</a></li>
+          <li><a href="{% url 'index' %}">View All My Slimes</a></li>
         </ul>
       </div>
     </nav>
