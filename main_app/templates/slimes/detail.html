@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Slime Details</h1>
+
+<div class="card">
+  <div class="card-content">
+    <span class="card-title">{{ slime.name }}</span>
+    <p>Breed: {{ slime.breed }}</p>
+    <p>Description: {{ slime.description }}</p>
+    {% if slime.age > 0 %}
+      <p>Age: {{ slime.age }}</p>
+    {% else %}
+      <p>Age: Spore</p>
+    {% endif %}
+  </div>
+</div>
+
+{% endblock %}
