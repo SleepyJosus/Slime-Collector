@@ -19,5 +19,44 @@
     <a href="{% url 'slimes_delete' slime.id %}">Delete</a>
   </div>
 </div>
-
+<hr>
+<div class="row">
+  <div class="col s6">
+    <h3>{{ slime.name }}'s Toys</h3>
+    {% if slime.toys.count %}
+      {% for toy in slime.toys.all %}
+        <div class="card">
+          <div class="card-content">
+            <span class="card-title">
+              A <span style="color: {{ toy.color }}">{{ toy.color }}</span> {{ toy.name }}
+            </span>
+          </div>
+        </div>
+      {% endfor %}
+    {% else %}
+      <h5>No Toys :(</h5>
+    {% endif %}
+</div>
+  <div class="col s6">
+    <h3>Available Toys</h3>
+    {% if toys.count %}
+      {% for toy in toys.all %}
+        <div class="card">
+          <div class="card-content">
+            <span class="card-title">
+              A <span style="color: {{ toy.color }}">{{ toy.color }}</span> {{ toy.name }}
+            </span>
+          </div>
+          <div class="card-action">
+            <form action="{% url 'assoc_toy' slime.id toy.id %}" method="post">
+              {% csrf_token %}
+              <button type="submit" class="btn">Add</button>
+            </form>
+          </div>
+        </div>
+      {% endfor %}
+    {% else %}
+      <h5>{{slime.name}} Already Has All Toys Available</h5>
+    {% endif %}
+</div>
 {% endblock %}
